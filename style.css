@@ -1,0 +1,197 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Changed to center content vertically */
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    background-image: 
+        radial-gradient(circle, #ff0000 1px, transparent 1px),
+        radial-gradient(circle, #ff0000 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.container {
+    text-align: center;
+    background-color: #222;
+    padding: 25px; /* Adjusted default padding */
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 4px #222, 0 0 0 8px #fff;
+    position: relative;
+    max-width: 500px;
+    width: 90vw;
+    margin: auto; /* Changed margin to auto to handle both horizontal and vertical centering */
+    image-rendering: pixelated;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-shadow: 4px 4px 0 #ff0000;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1em;
+    font-family: 'Press Start 2P', cursive;
+    border: 4px solid #fff;
+    background-color: #ff0000;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition: all 0.2s;
+    image-rendering: pixelated;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #ff0000;
+}
+
+#noButton {
+    background-color: #555;
+    border-color: #aaa;
+}
+
+#noButton:hover {
+    background-color: #777;
+    color: #fff;
+}
+
+.heart-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+    image-rendering: pixelated;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0000;
+    transform: rotate(45deg);
+    animation: floatUp 4s infinite linear;
+    opacity: 0;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0000;
+}
+
+.heart:before {
+    top: 0;
+    left: -10px;
+}
+
+.heart:after {
+    top: -10px;
+    left: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+.valentine-message {
+    font-size: 2.5em;
+    color: #ff0000;
+    text-shadow: 4px 4px 0 #fff;
+    animation: fadeIn 2s forwards;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#backButton {
+    margin-top: 30px;
+    background-color: #444;
+    border-color: #888;
+}
+
+#backButton:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 12px; /* Reduced padding */
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    .valentine-message {
+        font-size: 1.3em;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+
+    .buttons {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 8px; /* Further reduced padding */
+    }
+
+    h1 {
+        font-size: 1em;
+    }
+
+    .valentine-message {
+        font-size: 1em;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.7em;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
